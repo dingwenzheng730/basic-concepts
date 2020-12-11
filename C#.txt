@@ -6,34 +6,11 @@ delegate void Function1(String s);
 It means a function called Function1 with String input and void return
 
 2. How to write EventsHandler?
-i) Define eventsargs class and the args property
+i) Declare an event
+In publisher class, declare a delegate(defines the signature for the event handler), then declare an event of the delegate type
 
-public class ThresholdReachedEventArgs : EventArgs {
-	public int Threshold { get; set; }
-    public DateTime TimeReached { get; set; }
-}
+ii) Raising an event
+In somewhere in publisher class, raise the event.()
 
-ii) For the class triggerring the event, define event handle 
-
-public event EventHandler<ThresholdReachedEventArgs> ThresholdReached;
-
-iii) For the class triggerring the event, define "On" function(trigger function)
-protected virtual void OnThresholdReached(ThresholdReachedEventArgs e)
-{
-    ThresholdReachedEventHandler handler = ThresholdReached;
-    if (handler != null)
-    {
-        handler(this, e);
-    }        
-}
-
-iv) For the class receiving the event, define handler function 
-
-static void c_ThresholdReached(Object sender, ThresholdReachedEventArgs e)
-{
-    Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold, e.TimeReached);
-    Environment.Exit(0);
-}
-
-v) Append the handler function to the event handler
-c.ThresholdReached += c_ThresholdReached;
+iii) Consume an event
+In subscriber, define a event handler(based on the delegate), then register the handler to the event
