@@ -1,0 +1,5 @@
+1. Difference between x86 and x64
+x86: 32-bit CPU and OS
+x64: 64-bit CPU and OS
+x86 has 2^32 locations(4G)
+x64 has 2^64 locations
