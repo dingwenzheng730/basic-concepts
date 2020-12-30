@@ -15,7 +15,15 @@ In somewhere in publisher class, raise the event.()
 iii) Consume an event
 In subscriber, define a event handler(based on the delegate), then register the handler to the event
 
-3. Variable vs. Property
+3. null-coalescing 
+?? null-coalescing operator: evaluate left if it's not null, otherwise evaluate right
+name = nullable_name ?? "Leo";
+
+??= null-coalescing assignment operator: assign if left is null, otherwise keep left
+name ??= "Leo;
+
+
+4. Variable vs. Property
 i) Property allows custom behavior when getting or setting.
 ii) property gives more options for read/write access.
 iii) Property enables some extra features like data binding. 
